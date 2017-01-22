@@ -1,9 +1,6 @@
 package deepcopy
 
-import (
-	"log"
-	"testing"
-)
+import "testing"
 
 func TestClone(t *testing.T) {
 	i := new(int)
@@ -31,9 +28,10 @@ func TestListClone(t *testing.T) {
 	}
 
 	for i := 0; i < 5; i++ {
-		log.Println(l[i], z[i])
+		if l[i] != z[i]+6 {
+			t.Fail()
+		}
 	}
-
 }
 
 func simpleClone(a int) *int {
